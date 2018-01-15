@@ -7,7 +7,7 @@ Pour toutes les personnes qui rêves de devenir Reporter, ça sera maintenant po
 # Equipes
 ## Chef de projet : 
 - Teva Locandro M2
-
+## Membres : 
 - Dominique Gaffory M1
 - Jérémy Varési L3
 - Nicolas Serra L3
