@@ -14,3 +14,27 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.contentHome{
+     background-color: #e30613;
+}
+
+.contentHome img{
+    margin-top: 20%; 
+    margin-bottom: 20%;
+}
+
+.contentHome button{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.bgRed{
+    background-color: #e30613;
+}
+.toolbar-background-md{
+    background-color: #e30613;
+}
