@@ -18,10 +18,10 @@
           <ion-input [(ngModel)]="publi.titreArticle" required placeholder="Titre" type="text" name="titreArticle"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-select  required placeholder= "Catégorie ">
-            <ion-option value="1">Hotel</ion-option>
-            <ion-option value="2">Maison</ion-option>
-            <ion-option value="3">Informatique</ion-option>
+          <ion-select placeholder= "Catégorie">
+            <ion-option value="1">Météo</ion-option>
+            <ion-option value="2">Politique</ion-option>
+            <ion-option value="3">Loisirs</ion-option>
           </ion-select>
         </ion-item>
         <ion-row>
@@ -40,23 +40,23 @@
           <ion-textarea [(ngModel)]="publi.corpsArticle" required placeholder="Description" rows="8" name="corpsArticle"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-textarea required placeholder="Utiliser l'Open Data" name="OpenCorsica"></ion-textarea>
+            <ion-textarea  placeholder="Utiliser l'Open Data" name="OpenCorsica"></ion-textarea>
           </ion-item>
 
-          <!--Test en attendant-->
+          <!-- Test en attendant -->
           <ion-item>
-            <ion-input [(ngModel)]="publi.imgArticle" required  type="text" name="imgArticle" ></ion-input>
+            <ion-input [(ngModel)]="publi.imgArticle"  type="text" name="imgArticle" ></ion-input>
+          </ion-item>
+          <ion-item hidden>
+            <ion-input [(ngModel)]="publi.datePublication"  name="datePublication">
+            </ion-input>
           </ion-item>
           <ion-item>
-            <ion-input [(ngModel)]="publi.datePublication" name="datePublication"></ion-input>
+            <ion-input [(ngModel)]="publi.idCategorie" placeholder="Catégorie" type="text" name="idCategorie"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input [(ngModel)]="publi.idCategorie" required  type="text" name="idCategorie"></ion-input>
+            <ion-input [(ngModel)]="publi.idUser" placeholder="Utilisateur" type="text" name="idUser"></ion-input>
           </ion-item>
-          <ion-item>
-            <ion-input [(ngModel)]="publi.idUser" required  type="text" name="idUser"></ion-input>
-          </ion-item>
-
         <button ion-button type="submit" block>Publier</button>
       </form>
 </ion-content>
