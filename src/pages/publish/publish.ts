@@ -40,9 +40,9 @@ export class PublishPage {
    let base64Image = 'data:image/jpeg;base64,' + imageData;
   }, (err) => {
    // Handle error
-  }
-
-  /*openMenu() {
+  }*/
+/*
+  openMenu() {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Albums',
       cssClass: 'action-sheets-basic-page',

@@ -22,8 +22,4 @@ export class HomePage {
   inscription(){
     this.navCtrl.push(InscriptionPage);
   }
-
-  myhome() {
-    this.navCtrl.setRoot(PublishPage);
-  }
 }
