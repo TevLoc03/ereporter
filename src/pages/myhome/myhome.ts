@@ -44,4 +44,21 @@ export class MyhomePage {
     console.log('ionViewDidLoad MyhomePage');
   }
 
+
+  printArticle(id:any){
+
+    let seq = this.apiService.get('news/read_once.php?idArticle='+id, null, null);
+      
+      seq
+        .map(res => res.json())
+        .subscribe(res => {
+            // Retour JSON/XML de l'API
+            this.articles = res.articles;
+            console.log(res);
+          }, err => {
+            console.error('ERROR', err);
+          });
+      return seq;
+  }
+
 }
