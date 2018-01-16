@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { MyhomePage } from '../myhome/myhome';
+import { PublishPage } from '../publish/publish';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,6 +17,7 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {  
+  nav: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
@@ -27,9 +30,13 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  myhome(){
+    this.navCtrl.setRoot(MyhomePage);
+  }
+
   presentPrompt() {
     let alert = this.alertCtrl.create({
-      title: 'Enter your Email',
+      title: 'Entrer votre Email',
       inputs: [
         {
           name: 'email',
@@ -38,14 +45,14 @@ export class LoginPage {
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Annuler',
           role: 'cancel',
           handler: data => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Send',
+          text: 'Envoyer',
         }
       ]
     });

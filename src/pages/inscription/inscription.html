@@ -7,31 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    <img src="../../assets/imgs/logo-corsematin.png"/>
+    <img src="http://www.webngraf.com/api/img/logo-corsematin.png"/>
     <!--<ion-title>inscription</ion-title>-->
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding center>
+  <h1 class="titreC"> Inscription </h1>
   <form #loginForm="ngForm" autocomplete="off">
     <ion-row>
       <ion-col>
         <ion-list inset>
           <ion-item>
-              <ion-input placeholder="Firstname" name="prenom"  type="text" required [(ngModel)]="prenom" #email></ion-input>
+              <ion-input placeholder="Prénom" name="prenom"  type="text" required [(ngModel)]="prenom" #email></ion-input>
             </ion-item>
             <ion-item>
-                <ion-input placeholder="Lastname" name="nom"  type="text" required [(ngModel)]="nom" #email></ion-input>
+                <ion-input placeholder="Nom" name="nom"  type="text" required [(ngModel)]="nom" #email></ion-input>
               </ion-item>
           <ion-item>
             <ion-input placeholder="Email" name="username" id="loginField" type="text" required [(ngModel)]="username" #email></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input placeholder="Password" name="password" id="passwordField" type="password" required [(ngModel)]="password"></ion-input>
+            <ion-input placeholder="Mot de passe" name="password" id="passwordField" type="password" required [(ngModel)]="password"></ion-input>
           </ion-item>
           <ion-item>
-              <ion-input placeholder="Possword confirm" name="passwordConfirm" id="passwordField" type="password" required [(ngModel)]="passwordConfirm"></ion-input>
+              <ion-input placeholder="Confirmer mot de passe" name="passwordConfirm" id="passwordField" type="password" required [(ngModel)]="passwordConfirm"></ion-input>
             </ion-item>
         </ion-list>
       </ion-col>
