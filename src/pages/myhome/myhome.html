@@ -18,7 +18,7 @@
   <h1 class="titreC">Mes articles</h1>
   <ion-grid>
     <ion-row>
-        <ion-card *ngFor="let article of articles">
+        <ion-card id="{{article.idArticle}}" *ngFor="let article of articles" (click)="printArticle(this.article.idArticle)">
             <ion-card-header>
                 <ion-card-title>{{article.titreArticle}} <span class="date">{{article.datePublication}}</span></ion-card-title>
             </ion-card-header>
