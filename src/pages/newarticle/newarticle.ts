@@ -63,11 +63,11 @@ export class NewarticlePage {
 
   envoie() {
 
-    let data = JSON.stringify(this.publi);
+    let data = this.publi;
 
     console.log('preview', data);
 
-    this.apiService.post('news/create.php', data, null)
+    this.apiService.get('news/create.php', data)
     .subscribe(data => {
         console.log('ok', data);
 
