@@ -15,16 +15,16 @@
 </ion-header>
 
 <ion-content padding>
-  <h1 class="titreC">Mes articles</h1>
+  <h1 class="titreC">Mon article</h1>
   <ion-grid>
     <ion-row>
-        <ion-card *ngFor="let article of articles">
+        <ion-card> 
             <ion-card-header>
-                <ion-card-title>{{article.titreArticle}} <span class="date">{{article.datePublication}}</span></ion-card-title>
+                <ion-card-title>Collectivité Unique <span class="date">2018-01-16</span></ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <p>{{article.corpsArticle}}</p><br>
-              <img src="http://www.webngraf.com/api/img/logo-corsematin.png" width="100%" height="100px"/>
+              <p>Enfin la collectivité unique est la, un debut pour l'indépendance?</p><br>
+              <img src="http://www.webngraf.com/api/images-articles/collectivite.jpg" width="100%" height="100px"/>
             </ion-card-content>
         </ion-card>
     </ion-row>

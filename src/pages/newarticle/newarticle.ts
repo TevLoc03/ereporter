@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController  } from 'ionic-angular';
 import {Camera, CameraOptions} from '@ionic-native/camera';
 import {ApiServiceProvider} from '../../providers/api-service/api-service';
 import 'rxjs/add/operator/share';
@@ -23,14 +23,48 @@ import { File } from '@ionic-native/file';
 export class NewarticlePage {
   public photos : any;
   public base64Image : any;
-  constructor(private transfer: FileTransfer, private file: File, public apiService: ApiServiceProvider, public navCtrl: NavController, public navParams: NavParams, private camera : Camera, private alertCtrl : AlertController, private toastCtrl: ToastController) {
+  public loadingCtrl: LoadingController;
+  private transfer: FileTransfer;
+  imageURI:any;
+  imageFileName:any;
+
+  constructor(public apiService: ApiServiceProvider, public navCtrl: NavController, public navParams: NavParams, private camera : Camera, private alertCtrl : AlertController, private toastCtrl: ToastController) {
   }
 
-  const fileTransfer: FileTransferObject = this.transfer.create();
+  uploadFile() {
+    let loader = this.loadingCtrl.create({
+      content: "Uploading..."
+    });
+
+    loader.present();
+    const fileTransfer: FileTransferObject = this.transfer.create();
+  
+    let options: FileUploadOptions = {
+      fileKey: 'ionicfile',
+      fileName: 'ionicfile',
+      chunkedMode: false,
+      mimeType: "image/jpeg",
+      headers: {}
+    }
+  
+    fileTransfer.upload(this.imageURI, 'http://www.webngraf.com/api/images-articles/', options)
+      .then((data) => {
+      console.log(data+" Uploaded Successfully");
+      this.imageFileName = "http://www.webngraf.com/api/images-articles/test.jpg"
+      loader.dismiss();
+      //this.presentToast("Image uploaded successfully");
+    }, (err) => {
+      console.log(err);
+      loader.dismiss();
+     // this.presentToast(err);
+    });
+  }
+
+  /*const fileTransfer: FileTransferObject = this.transfer.create();
 
   fileTransfer.upload(..).then(..).catch(..);
 
-  upload() {
+  upload(){
   let options: FileUploadOptions = {
      fileKey: 'file',
      fileName: 'name.jpg',
@@ -42,9 +76,10 @@ export class NewarticlePage {
      // success
    }, (err) => {
      // error
-   })
+   })*/
 
-  ngOnInit() {
+
+  ngOnInit(){
     this.photos = [];
   }
 
@@ -58,6 +93,7 @@ export class NewarticlePage {
     destinationType: this.camera.DestinationType.DATA_URL
    }).then((imageData) => {
      this.base64Image = 'data:image/jpeg;base64,'+imageData;
+     this.photos.push(this.base64Image);
     }, (err) => {
      console.log(err);
    });
@@ -72,6 +108,7 @@ export class NewarticlePage {
     }
     this.camera.getPicture(options) .then((imageData) => {
         this.base64Image = "data:image/jpeg;base64," + imageData;
+        this.imageURI = this.base64Image;
         this.photos.push(this.base64Image);
         this.photos.reverse();
       }, (err) => {

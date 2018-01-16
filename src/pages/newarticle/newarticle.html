@@ -18,15 +18,16 @@
           <ion-input [(ngModel)]="publi.titreArticle" required placeholder="Titre" type="text" name="titreArticle"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-select placeholder= "Catégorie">
-            <ion-option value="1">Météo</ion-option>
-            <ion-option value="2">Politique</ion-option>
-            <ion-option value="3">Loisirs</ion-option>
+          <ion-select [(ngModel)]="publi.idCategorie" [ngModelOptions]="{standalone: 1}">
+            <ion-option selected Value="1">Météo</ion-option>
+            <ion-option ngValue="2">Politique</ion-option>
+            <ion-option ngValue="3">Loisirs</ion-option>
           </ion-select>
         </ion-item>
         <ion-row>
         <ion-col> <button ion-button full (click)="takePhoto()" ><ion-icon name="camera"> </ion-icon>&nbsp; Photo</button></ion-col>
         <ion-col> <button ion-button block color="primary" (click)="accessGallery()"><ion-icon name="images"></ion-icon>&nbsp; Gallery</button></ion-col></ion-row>
+        <ion-col> <button ion-button full (click)="uploadFile()" ><ion-icon name="camera"> </ion-icon>&nbsp; upload</button></ion-col>
             
             <!--<ion-col col-6><img [src]="base64Image" *ngIf="base64Image" /></ion-col>-->
 
@@ -48,9 +49,9 @@
             <ion-input [(ngModel)]="publi.imgArticle"  type="text" name="imgArticle" ></ion-input>
           </ion-item>
 
-          <ion-item>
-            <ion-input [(ngModel)]="publi.idCategorie" placeholder="Catégorie" type="text" name="idCategorie"></ion-input>
-          </ion-item>
+          <!--ion-item>
+            <ion-input [(ngModel)]="publi.idCategorie" placeholder="Catégorie" id="idCategorie" type="text" name="idCategorie"></ion-input>
+          </ion-item-->
           <ion-item>
             <ion-input [(ngModel)]="publi.idUser" placeholder="Utilisateur" type="text" name="idUser"></ion-input>
           </ion-item>

@@ -24,23 +24,24 @@ export class MypublicationPage {
   constructor(public apiService: ApiServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidEnter(){
-  let seq = this.apiService.get('news/read.php', null, null).share();
-    
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-          // Retour JSON/XML de l'API
-          this.articles = res.articles;
-          console.log(res);
-        }, err => {
-          console.error('ERROR', err);
-        });
-    return seq;
+  printArticle(){
+
+    let seq = this.apiService.get('news/read_once.php?idArticle=1', null, null).share();
+      
+      seq
+        .map(res => res.json())
+        .subscribe(res => {
+            // Retour JSON/XML de l'API
+            this.articles = res.articles;
+            console.log(res);
+          }, err => {
+            console.error('ERROR', err);
+          });
+      return seq;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MypublicationPage');
+    //this.printArticle(1);
   }
 
 }
