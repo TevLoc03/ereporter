@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController  } from 'ionic-angular';
 import {Camera, CameraOptions} from '@ionic-native/camera';
+import {ApiServiceProvider} from '../../providers/api-service/api-service';
+import 'rxjs/add/operator/share';
+import { Http } from '@angular/http';
+import { MyhomePage } from '../myhome/myhome';
 /**
  * Generated class for the NewarticlePage page.
  *
@@ -12,11 +16,12 @@ import {Camera, CameraOptions} from '@ionic-native/camera';
 @Component({
   selector: 'page-newarticle',
   templateUrl: 'newarticle.html',
+  providers: [ApiServiceProvider]
 })
 export class NewarticlePage {
   public photos : any;
   public base64Image : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera : Camera, private alertCtrl : AlertController, private toastCtrl: ToastController) {
+  constructor(public apiService: ApiServiceProvider, public navCtrl: NavController, public navParams: NavParams, private camera : Camera, private alertCtrl : AlertController, private toastCtrl: ToastController) {
   }
 
   ngOnInit() {
@@ -54,7 +59,38 @@ export class NewarticlePage {
       });
   }
 
-  envoie(){
+  publi = {};
+
+  envoie() {
+
+    let data = JSON.stringify(this.publi);
+
+    console.log('preview', data);
+
+    this.apiService.post('news/create.php', data, null)
+    .subscribe(data => {
+        console.log('ok', data);
+
+        this.navCtrl.push(MyhomePage);
+        let alert = this.alertCtrl.create({
+          title: 'Publication envoyée!',
+          buttons: ['OK']
+        });
+        alert.present();
+
+    }, error => {
+      console.error('err', error);
+
+      let alert = this.alertCtrl.create({
+        title: 'Erreur',
+        buttons: ['OK']
+      });
+
+      alert.present();
+    });
+
+    }
+  /*envoie(){
     let toast = this.toastCtrl.create({
       message: 'Publication envoyée!',
       duration: 3000,
@@ -66,5 +102,5 @@ export class NewarticlePage {
     });
   
     toast.present();
-  }
+  }*/
 }

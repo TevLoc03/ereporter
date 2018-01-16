@@ -35,12 +35,36 @@
 .bgRed{
     background-color: #e30613;
 }
-
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default,.toolbar-title-md {
+    color: white;
+}
 .toolbar-background-md{
     background-color: #e30613;
 }
 
 .titreC{
     text-align: center;
-    
+    font-size: 22px;
+    color: #616060;
+    border-bottom: 1px solid;
+    width: 39%;
+    margin: auto;
+}
+.card-md {
+    border-bottom: 1px solid;
+    padding-bottom: 18px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.card-title-md {
+    color: #3950a0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px; 
+}
+.date {
+    margin-left: 33px;
+    color: grey;
+    font-weight: bold;
+    font-size: 17px;
 }

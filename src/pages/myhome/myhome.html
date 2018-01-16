@@ -15,5 +15,18 @@
 </ion-header>
 
 <ion-content padding>
-
+  <h1 class="titreC">Mes articles</h1>
+  <ion-grid>
+    <ion-row>
+        <ion-card *ngFor="let article of articles">
+            <ion-card-header>
+                <ion-card-title>{{article.titreArticle}} <span class="date">{{article.datePublication}}</span></ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>{{article.corpsArticle}}</p><br>
+              <img src="http://www.webngraf.com/api/img/logo-corsematin.png" width="100%" height="100px"/>
+            </ion-card-content>
+        </ion-card>
+    </ion-row>
+</ion-grid>
 </ion-content>
