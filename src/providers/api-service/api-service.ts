@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Header } from 'ionic-angular/components/toolbar/toolbar-header';
 
 /*
   Generated class for the ApiServiceProvider provider.
@@ -38,13 +39,13 @@ export class ApiServiceProvider {
 		return this.http.get(this.url + '/' + endpoint, options);
   }
   
-	post(endpoint: string, valPost?: any, options?: RequestOptions) {
+	post(endpoint: string, valPost?: any) {
 		
-		options = new RequestOptions();
-		options.headers = new Headers();
-
-		options.headers.append('Content-Type', 'application/json');
-		return this.http.post(this.url + '/' + endpoint, valPost, options);
+		//options = new RequestOptions();
+		//options.headers = new Headers();
+		var headers = new Headers();
+		//headers.append('Content-Type', 'application/json');
+		return this.http.post(this.url + '/' + endpoint, valPost);
 	}
 
 
