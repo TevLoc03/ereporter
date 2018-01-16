@@ -5,6 +5,8 @@ import {ApiServiceProvider} from '../../providers/api-service/api-service';
 import 'rxjs/add/operator/share';
 import { Http } from '@angular/http';
 import { MyhomePage } from '../myhome/myhome';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 /**
  * Generated class for the NewarticlePage page.
  *
@@ -21,8 +23,26 @@ import { MyhomePage } from '../myhome/myhome';
 export class NewarticlePage {
   public photos : any;
   public base64Image : any;
-  constructor(public apiService: ApiServiceProvider, public navCtrl: NavController, public navParams: NavParams, private camera : Camera, private alertCtrl : AlertController, private toastCtrl: ToastController) {
+  constructor(private transfer: FileTransfer, private file: File, public apiService: ApiServiceProvider, public navCtrl: NavController, public navParams: NavParams, private camera : Camera, private alertCtrl : AlertController, private toastCtrl: ToastController) {
   }
+
+  const fileTransfer: FileTransferObject = this.transfer.create();
+
+  fileTransfer.upload(..).then(..).catch(..);
+
+  upload() {
+  let options: FileUploadOptions = {
+     fileKey: 'file',
+     fileName: 'name.jpg',
+     headers: {}
+  }
+
+  fileTransfer.upload('<file path>', '<api endpoint>', options)
+   .then((data) => {
+     // success
+   }, (err) => {
+     // error
+   })
 
   ngOnInit() {
     this.photos = [];
